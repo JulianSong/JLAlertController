@@ -6,7 +6,7 @@
 [![Platform](https://img.shields.io/cocoapods/p/JLAlertController.svg?style=flat)](http://cocoapods.org/pods/JLAlertController)
 
 ## Screen Shots
-![image](https://github.com/JulianSong/JLAlertController/blob/master/Example/screenshots/JLAlertController_Screenshot_1.gif =375x667)
+<img src="https://github.com/JulianSong/JLAlertController/blob/master/Example/screenshots/JLAlertController_Screenshot_1.gif" width="375" height="667" />
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
