@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'JLAlertController_Example' do
+  pod 'JLAlertController', :path => '../'
+
+  target 'JLAlertController_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
