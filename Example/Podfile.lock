@@ -1,0 +1,19 @@
+PODS:
+  - JLAlertController (0.1.0):
+    - JLTransitioning
+  - JLTransitioning (0.1.0)
+
+DEPENDENCIES:
+  - JLAlertController (from `../`)
+
+EXTERNAL SOURCES:
+  JLAlertController:
+    :path: ../
+
+SPEC CHECKSUMS:
+  JLAlertController: 802fd0eb5f821f1fa1d6b6c10c7246f7c0c96cda
+  JLTransitioning: 76eac805c48d86cffa2a86971d79621c352d49c8
+
+PODFILE CHECKSUM: da48dd2eb922ae03ad8eea2b174340bf02a136ff
+
+COCOAPODS: 1.0.0.beta.3

@@ -1,0 +1,6 @@
+framework module JLTransitioning {
+  umbrella header "JLTransitioning-umbrella.h"
+
+  export *
+  module * { export * }
+}
