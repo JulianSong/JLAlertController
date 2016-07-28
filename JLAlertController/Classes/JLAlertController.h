@@ -23,7 +23,12 @@ typedef void (^JLAlertControllerActionHandle)(NSString *actonName);
 @property (nonatomic,strong) UIVisualEffectView           * visualEffectView;
 @property (nonatomic,assign,getter = isButtonSetup)BOOL buttonSetup;
 
+
 - (instancetype) initAlertControllerWithTitle:(NSString *)title andMessage:(NSString *)message;
+
+- (instancetype) initAlertControllerWithTitle:(NSString *)title;
+
+- (instancetype) initAlertControllerWithMessage:(NSString *)message;
 
 - (void)addCustomView:(UIView *)customView;
 

@@ -16,6 +16,21 @@
 
 @implementation JLAlertController
 
+- (instancetype) init
+{
+    return [self initAlertControllerWithTitle:nil andMessage:nil];
+}
+
+- (instancetype)initAlertControllerWithTitle:(NSString *)title
+{
+    return [self initAlertControllerWithTitle:title andMessage:nil];
+}
+
+- (instancetype)initAlertControllerWithMessage:(NSString *)message
+{
+    return [self initAlertControllerWithTitle:nil andMessage:message];
+}
+
 - (instancetype) initAlertControllerWithTitle:(NSString *)title andMessage:(NSString *)message
 {
     self = [super initWithStyle:UITableViewStylePlain];
@@ -63,7 +78,11 @@
     
     self.tableView.scrollEnabled   = NO;
     self.tableView.allowsSelection = NO;
-    self.tableView.tableHeaderView = self.titleLabel;
+    
+    if (self.titleLabel.text != nil) {
+        self.tableView.tableHeaderView = self.titleLabel;
+    }
+    
     self.tableView.separatorInset  = UIEdgeInsetsZero;
     [self.tableView setLayoutMargins:UIEdgeInsetsZero];
 
@@ -71,6 +90,7 @@
     UIBlurEffect *blur             = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
     _visualEffectView              = [[UIVisualEffectView alloc] initWithEffect:blur];
     _visualEffectView.frame        = self.view.bounds;
+    _visualEffectView.alpha        = 0.7;
     [self.view insertSubview:self.visualEffectView atIndex:0];
 }
 
