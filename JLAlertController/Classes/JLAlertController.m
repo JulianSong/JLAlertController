@@ -42,7 +42,7 @@
         _titleLabel.font              = [UIFont boldSystemFontOfSize:18];
         _titleLabel.backgroundColor   = [UIColor clearColor];
         _titleLabel.text              = title;
-
+        
         _messageLabel                 = [[UILabel alloc] init];
         _messageLabel.textColor       = JLAlertDark;
         _messageLabel.font            = [UIFont systemFontOfSize:14];
@@ -50,24 +50,24 @@
         _messageLabel.backgroundColor = [UIColor clearColor];
         _messageLabel.numberOfLines   = 0;
         _messageLabel.text            = message;
-
+        
         _actions                      = [[NSMutableArray alloc] init];
         _actionButtons                = [[NSMutableArray alloc] init];
         _actionHandles                = [[NSMutableDictionary alloc] init];
         _customViews                  = [[NSMutableArray alloc] init];
         _totalViews                   = [[NSMutableArray alloc] init];
-
+        
         if (message != nil) {
             [_totalViews addObject:_messageLabel];
         }
-
+        
         _footerView                   = [[UIView alloc] initWithFrame:CGRectMake(0,0,0,44)];
         _popTransitioning             = [[JLPopTransitioning alloc] init];
-
-        self.modalTransitionStyle     = UIModalPresentationCustom;
+        
+        //        self.modalTransitionStyle     = UIModalPresentationCustom;
         self.modalPresentationStyle   = UIModalPresentationOverCurrentContext;
         self.transitioningDelegate    = _popTransitioning;
-
+        
     }
     return self;
 }
@@ -75,7 +75,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupButtons];
-    
+    self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.scrollEnabled   = NO;
     self.tableView.allowsSelection = NO;
     
@@ -85,13 +85,12 @@
     
     self.tableView.separatorInset  = UIEdgeInsetsZero;
     [self.tableView setLayoutMargins:UIEdgeInsetsZero];
-
+    
     self.view.backgroundColor      = [UIColor whiteColor];
     UIBlurEffect *blur             = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
     _visualEffectView              = [[UIVisualEffectView alloc] initWithEffect:blur];
-    _visualEffectView.frame        = self.view.bounds;
     _visualEffectView.alpha        = 0.7;
-    [self.view insertSubview:self.visualEffectView atIndex:0];
+    self.tableView.backgroundView = self.visualEffectView;
 }
 
 - (void)addCustomView:(UIView *)customView
@@ -142,7 +141,7 @@
     for (UIView *subView in subViews) {
         [subView removeFromSuperview];
     }
-
+    
     CGFloat width = self.view.bounds.size.width / self.actions.count;
     int index = 0;
     for (UIButton *actionButton in self.actionButtons) {
@@ -214,6 +213,11 @@
     return height;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [self tableView:tableView heightForRowAtIndexPath:indexPath];
+}
+
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [cell setSeparatorInset:UIEdgeInsetsZero];
@@ -245,3 +249,4 @@
 }
 
 @end
+
